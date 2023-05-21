@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <appender name="LogToConsole" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%highlight(%d{ISO8601}{GMT+0}){yellow} %-5highlight(%level){magenta} %highlight(%logger{36}){cyan}
+                - %msg%n
+            </pattern>
+        </encoder>
+    </appender>
+    <root level="info">
+        <appender-ref ref="LogToConsole"/>
+        <appender-ref ref="LogToFile"/>
+    </root>
+</configuration>
