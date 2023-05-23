@@ -12,6 +12,5 @@ public interface CustomerServices {
 
     List<CustomerModel> findAll();
 
-    Optional<CustomerModel> findById(String id);
-
+    Optional<CustomerModel> findByEmail(String email);
 }

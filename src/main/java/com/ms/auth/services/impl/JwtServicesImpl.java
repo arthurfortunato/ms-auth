@@ -11,9 +11,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.stereotype.Service;
 
-import java.time.Duration;
-import java.time.Instant;
-import java.time.temporal.ChronoUnit;
 import java.util.Date;
 import java.util.List;
 
@@ -36,7 +33,6 @@ public class JwtServicesImpl implements JwtServices {
                     .withClaim("authorities", roles)
                     .sign(Algorithm.HMAC256(jwtProperties.getSecretKey()));
         } catch (Exception e) {
-            // Tratar a exceção aqui ou relançá-la se necessário
             throw new RuntimeException("Erro ao emitir o token JWT", e);
         }
     }
@@ -49,7 +45,6 @@ public class JwtServicesImpl implements JwtServices {
                     .build()
                     .verify(token);
         } catch (JWTVerificationException e) {
-            // Tratar a exceção aqui
             throw new RuntimeException("Erro ao decodificar o token JWT: " + e.getMessage(), e);
         }
     }
@@ -63,7 +58,6 @@ public class JwtServicesImpl implements JwtServices {
                     .authorities(extractAuthoritiesFromClaim(jwt))
                     .build();
         } catch (Exception e) {
-            // Tratar a exceção aqui ou relançá-la se necessário
             throw new RuntimeException("Erro ao converter o token JWT para CustomerPrincipal", e);
         }
     }
@@ -77,7 +71,6 @@ public class JwtServicesImpl implements JwtServices {
         try {
             return claim.asList(SimpleGrantedAuthority.class);
         } catch (Exception e) {
-            // Tratar a exceção aqui ou relançá-la se necessário
             throw new RuntimeException("Erro ao extrair as autoridades do token JWT", e);
         }
     }

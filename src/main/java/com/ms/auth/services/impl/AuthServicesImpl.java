@@ -90,7 +90,7 @@ public class AuthServicesImpl implements AuthServices {
     }
 
     @Override
-    public CustomerModel registrationRequest(CustomerModel customerModel) {
+    public void registrationRequest(CustomerModel customerModel) {
         log.info("Starting customer registration");
         if (customerModel.getName().isEmpty()
                 || customerModel.getEmail().isEmpty()
@@ -109,6 +109,11 @@ public class AuthServicesImpl implements AuthServices {
         customerModel.setRole("ROLE_USER");
 
         log.info("Successfully registered customer!");
-        return customerRepository.save(customerModel);
+        customerRepository.save(customerModel);
+    }
+
+    @Override
+    public Optional<Object> findByEmail(String email) {
+        return Optional.empty();
     }
 }

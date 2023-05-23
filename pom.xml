@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.ms.auth</groupId>
 	<artifactId>ms-auth</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.1.0-SNAPSHOT</version>
 	<name>ms-auth</name>
 	<description>A Spring Boot app for customer registration, login, and JWT authentication.</description>
 	<properties>

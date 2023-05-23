@@ -45,6 +45,7 @@ public class WebSecurityConfig {
                 .authorizeHttpRequests(registry -> registry
                         .requestMatchers("/api/v1/customers/**").hasAnyRole("USER", "ADMIN")
                         .requestMatchers("/api/v1/auth/**").permitAll()
+                        .requestMatchers("/api/v1/recover/**").permitAll()
                         .anyRequest().authenticated()
                 )
                 .build();

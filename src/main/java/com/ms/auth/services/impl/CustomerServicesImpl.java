@@ -34,21 +34,7 @@ public class CustomerServicesImpl implements CustomerServices {
     }
 
     @Override
-    public Optional<CustomerModel> findById(String id) {
-        return customerRepository.findById(id);
+    public Optional<CustomerModel> findByEmail(String email) {
+        return customerRepository.findByEmail(email);
     }
-
-//    @Override
-//    public CustomerModel getUser(CustomerModel customer) {
-//        Optional<CustomerModel> optionalUser = customerRepository.findById(customer.getId());
-//
-//        if (optionalUser.isEmpty()) {
-//            throw new ResourceNotFoundException("Usuário não encontrado");
-//        }
-//
-//        CustomerModel currentUser = optionalUser.get();
-//        currentUser.setPassword(null);
-//
-//        return currentUser;
-//    }
 }

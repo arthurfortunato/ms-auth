@@ -2,13 +2,19 @@
 <configuration>
     <appender name="LogToConsole" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <pattern>%highlight(%d{ISO8601}{GMT+0}){yellow} %-5highlight(%level){magenta} %highlight(%logger{36}){cyan}
-                - %msg%n
-            </pattern>
+            <pattern>%highlight(%d{ISO8601}{GMT+0}){yellow} %-5highlight(%level){magenta} %highlight(%logger{36}){cyan} - %msg%n</pattern>
         </encoder>
     </appender>
+
+    <appender name="LogToFile" class="ch.qos.logback.core.FileAppender">
+        <file>logs/ms-auth.log</file>
+        <encoder>
+            <pattern>%highlight(%d{ISO8601}{GMT+0}){yellow} %-5highlight(%level){magenta} %highlight(%logger{36}){cyan} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
     <root level="info">
-        <appender-ref ref="LogToConsole"/>
-        <appender-ref ref="LogToFile"/>
+        <appender-ref ref="LogToConsole" />
+        <appender-ref ref="LogToFile" />
     </root>
 </configuration>

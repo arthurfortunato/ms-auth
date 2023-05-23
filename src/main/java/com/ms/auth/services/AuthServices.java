@@ -5,10 +5,13 @@ import com.ms.auth.dtos.LoginResponse;
 import com.ms.auth.models.CustomerModel;
 import org.springframework.http.ResponseEntity;
 
+import java.util.Optional;
+
 public interface AuthServices {
     ResponseEntity<LoginResponse> loginRequest(LoginRequest request);
 
-    CustomerModel registrationRequest(CustomerModel userModel);
+    void registrationRequest(CustomerModel userModel);
 
+    Optional<Object> findByEmail(String email);
 }
 
